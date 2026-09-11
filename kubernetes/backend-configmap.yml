@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-configmap
+data:
+  DB_HOST: "shopsphere.c3y446yy8mt8.ap-south-1.rds.amazonaws.com"
+  DB_NAME: "shopsphere"
+  DB_PORT: "5432"
+  DB_SSL: "true"              # set to "true" when DB_HOST is an RDS endpoint
+  JWT_EXPIRES_IN: "7d"
+  CORS_ORIGIN: "*"
