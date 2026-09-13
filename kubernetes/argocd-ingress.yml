@@ -1,28 +1,23 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
-metadata: 
-  name: shopsphere-ingress
+metadata:
+  name: argocd-ingress
+  namespace: argocd
   annotations:
     kubernetes.io/ingress.class: "alb"                         # AWS Load Balancer Controller
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
     alb.ingress.kubernetes.io/group.name: shared-alb
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
 spec:
   rules:
     - http:
         paths:
-        - path: /api
+        - path: /argocd
           pathType: Prefix
           backend:
             service:
-              name: shopsphere-backend
+              name: argocd-server
               port:
-                number: 5000
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: frontend-service
-              port:
-                number: 80
+                number: 443

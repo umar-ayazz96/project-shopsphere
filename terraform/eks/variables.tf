@@ -1,3 +1,7 @@
+# ---------------------------------------------------
+# EKS Cluster Variables
+# ---------------------------------------------------
+
 variable cluster_name {
     type = string
 }
@@ -26,4 +30,56 @@ variable "min_nodes" {
 variable "max_nodes" {
   description = "Maximum worker nodes"
   type        = number
+}
+
+# ---------------------------------------------------
+# VPC Variables
+# ---------------------------------------------------
+
+variable vpc_name {
+    type = string
+}
+
+variable vpc_cidr {
+    type = string   
+}
+
+variable vpc_az {
+    type = list(string)
+}
+
+
+variable private_subnets {
+  type = list(string)
+}
+
+variable public_subnets {
+  type = list(string)
+}
+
+# ---------------------------------------------------
+# RDS Variables
+# ---------------------------------------------------
+
+variable "db_name" {
+  type = string
+}
+
+variable "db_username" {
+  type = string
+}
+
+
+variable "db_instance_class" {
+  type    = string
+}
+
+variable "allocated_storage" {
+  type    = number
+  default = 20
+}
+
+variable "max_allocated_storage" {
+  type    = number
+  default = 100
 }

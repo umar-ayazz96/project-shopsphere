@@ -21,6 +21,7 @@ module "rds" {
   storage_encrypted     = true
 
   # Use the private subnets created by your VPC module
+  create_db_subnet_group = true
   subnet_ids = module.vpc.private_subnets
 
   # RDS will only be reachable through this security group
@@ -36,9 +37,9 @@ module "rds" {
   skip_final_snapshot = true
 
   tags = {
-    Environment = var.environment
-    Project     = var.project_name
-    ManagedBy   = "Terraform"
+    
+    Name = "${var.cluster_name}-postgres"
+
   }
 }
 
@@ -49,13 +50,10 @@ module "rds" {
 resource "aws_security_group" "rds" {
   name        = "${var.cluster_name}-rds-sg"
   description = "Security group for ShopSphere PostgreSQL RDS"
-  vpc_id      = var.vpc_id
+  vpc_id      = module.vpc.vpc_id
 
   tags = {
     Name        = "${var.cluster_name}-rds-sg"
-    Environment = var.environment
-    Project     = var.project_name
-    ManagedBy   = "Terraform"
   }
 }
 
@@ -71,7 +69,7 @@ resource "aws_vpc_security_group_ingress_rule" "postgres_from_eks" {
   from_port   = 5432
   to_port     = 5432
 
-  referenced_security_group_id = var.eks_security_group_id
+  referenced_security_group_id = module.eks.node_security_group_id
 
   description = "Allow PostgreSQL access from EKS"
 }
