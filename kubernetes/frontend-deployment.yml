@@ -6,7 +6,7 @@ metadata:
     type: frontend
     stage: production
 spec:
-  replicas: 3
+  replicas: 10
   selector:
     matchLabels:
       type: frontend
