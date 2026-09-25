@@ -5,7 +5,7 @@ metadata:
   labels:
     type: backend
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
       type: backend
