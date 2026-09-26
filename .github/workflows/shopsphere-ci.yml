@@ -27,8 +27,8 @@ jobs:
         file: ./frontend/Dockerfile
         push: true
         tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/shopsphere-frontend:${{ github.sha }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/shopsphere-frontend:latest
+            ${{ secrets.DOCKERHUB_NAME }}/shopsphere-frontend:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_NAME }}/shopsphere-frontend:latest
 
   backend:
     name: backend build
@@ -51,5 +51,5 @@ jobs:
         file: ./backend/Dockerfile
         push: true
         tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/shopsphere-backend:${{ github.sha }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/shopsphere-backend:latest
+            ${{ secrets.DOCKERHUB_NAME }}/shopsphere-backend:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_NAME }}/shopsphere-backend:latest
