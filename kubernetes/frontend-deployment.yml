@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: shopsphere-frontend
-        image: umarayaz96/shopsphere-frontend:1.0
+        image: umarayaz96/shopsphere-frontend:42c01bc0b6dab29dc28c991f859f53412ad01acd
         ports:
         - containerPort: 80
         resources:

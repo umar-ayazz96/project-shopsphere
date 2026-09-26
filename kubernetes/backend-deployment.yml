@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: shopsphere-backend
-        image: umarayaz96/shopsphere-backend:1.3
+        image: umarayaz96/shopsphere-backend:42c01bc0b6dab29dc28c991f859f53412ad01acd
         ports:
         - containerPort: 5000
         resources:
