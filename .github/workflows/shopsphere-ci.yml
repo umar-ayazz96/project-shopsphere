@@ -1,11 +1,11 @@
-Name: shopsphere-ci
+name: shopsphere-ci
 
-On:
+on:
   push:
     branches:
       - main
 
-Jobs:
+jobs:
   frontend:
     name: frontend build
     runs-on: ubuntu-latest
