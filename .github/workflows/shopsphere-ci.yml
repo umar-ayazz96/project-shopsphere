@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - main
-  paths:
-      - 'frontend/**'
-      - 'backend/**'
+    paths:
+        - 'frontend/**'
+        - 'backend/**'
 
 jobs:
   frontend:
