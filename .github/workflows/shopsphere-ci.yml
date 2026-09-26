@@ -12,7 +12,6 @@ jobs:
   frontend:
     name: frontend build
     runs-on: ubuntu-latest
-
     steps:
     - name: checkout code
       uses: actions/checkout@v3
@@ -36,7 +35,6 @@ jobs:
   backend:
     name: backend build
     runs-on: ubuntu-latest
-
     steps:
     - name: checkout code
       uses: actions/checkout@v3
